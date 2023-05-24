@@ -13,16 +13,19 @@ fetch('https://reqres.in/api/users?page=2')
       data.data.forEach(item => {
         const userList = document.createElement("li");
         const img = document.createElement("img");
-        const label = document.createElement("label");
-        const label2 = document.createElement("label");
-        label.textContent = item.first_name + " " + item.last_name;
-        userList.textContent = item.email
+        const name = document.createElement("label");
+        const id = document.createElement("label");
+        const br = document.createElement("br");
+        name.textContent = "Name: " + item.first_name + " " + item.last_name;
+        userList.textContent = "Email: " + item.email
         img.src = item.avatar;
-        label2.textContent = item.id;
+        id.textContent = "Id: " + item.id;
         list.appendChild(userList);
+        list.appendChild(id);
+        list.appendChild(br);
+        list.appendChild(name);
+        list.appendChild(br);
         list.appendChild(img);
-        list.appendChild(label);
-        list.appendChild(label2);
       });
     })
     .catch(error => console.log("Error: ", error));
